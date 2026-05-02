@@ -17,5 +17,5 @@ router.get("/", getProperties);
 
 // PROTECTED
 router.post("/", auth, upload.single("image"), createProperty);
-
+router.delete("/:id", auth, deleteProperty);
 module.exports = router;

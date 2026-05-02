@@ -1,6 +1,7 @@
 import { useState } from "react";
 import api from "../services/api";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
+import "../styles/auth.css";
 
 function Register() {
   const [form, setForm] = useState({ name: "", email: "", password: "" });
@@ -8,34 +9,55 @@ function Register() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await api.post("/auth/register", form);
-    navigate("/login");
+    try {
+      await api.post("/auth/register", form);
+      navigate("/login");
+    } catch (err) {
+      alert("Registration failed");
+    }
   };
 
   return (
-    <div className="container">
-      <div className="form-box">
-        <h2>Register</h2>
+    <div className="auth-container">
+      <div className="auth-card">
+        <h2>Create Account</h2>
 
         <form onSubmit={handleSubmit}>
           <input
+            type="text"
             placeholder="Name"
-            onChange={(e) => setForm({ ...form, name: e.target.value })}
+            required
+            onChange={(e) =>
+              setForm({ ...form, name: e.target.value })
+            }
           />
 
           <input
+            type="email"
             placeholder="Email"
-            onChange={(e) => setForm({ ...form, email: e.target.value })}
+            required
+            onChange={(e) =>
+              setForm({ ...form, email: e.target.value })
+            }
           />
 
           <input
             type="password"
             placeholder="Password"
-            onChange={(e) => setForm({ ...form, password: e.target.value })}
+            required
+            onChange={(e) =>
+              setForm({ ...form, password: e.target.value })
+            }
           />
 
-          <button>Register</button>
+          <button type="submit">Register</button>
         </form>
+
+        <div className="auth-footer">
+          <p>
+            Already have an account? <Link to="/login">Login</Link>
+          </p>
+        </div>
       </div>
     </div>
   );

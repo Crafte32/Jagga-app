@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import api from "../services/api";
 import { useNavigate, Link } from "react-router-dom";
+import "../styles/home.css";
 
 function Properties() {
   const [properties, setProperties] = useState([]);
@@ -15,19 +16,10 @@ function Properties() {
     navigate("/login");
   };
 
-  return (
+ /*  return (
     <div className="container">
       <div style={{ display: "flex", justifyContent: "space-between" }}>
         <h2>Properties</h2>
-
-        <div>
-          <Link to="/add-property">
-            <button>Add Property</button>
-          </Link>
-          <button onClick={logout} style={{ marginLeft: "10px" }}>
-            Logout
-          </button>
-        </div>
       </div>
 
       <div style={{ marginTop: "20px" }}>
@@ -62,6 +54,33 @@ function Properties() {
 ))}
       </div>
     </div>
+  ); */
+  return (
+    <>
+
+      <div className="home-container">
+        <h1>Available Properties</h1>
+
+        <div className="property-grid">
+          {properties.map((p) => (
+            <div className="property-card" key={p._id}>
+              
+              {/* Image */}
+              {p.image && (
+                <img src={p.image} alt={p.title} />
+              )}
+
+              <div className="property-info">
+                <h3>{p.title}</h3>
+                <p className="location">{p.location}</p>
+                <p className="price">${p.price}</p>
+              </div>
+
+            </div>
+          ))}
+        </div>
+      </div>
+    </>
   );
 }
 

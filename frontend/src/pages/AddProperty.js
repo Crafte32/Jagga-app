@@ -34,36 +34,46 @@ const [form, setForm] = useState({
   }
 };
 
-  return (
-    <div>
-      <h1>Add Property</h1>
+ return (
+  <div className="container">
+    <div className="form-container">
+      <div className="form-box">
+        <h2>Add New Property</h2>
 
-      <form onSubmit={handleSubmit}>
-        <input
-          placeholder="Title"
-          onChange={(e) => setForm({ ...form, title: e.target.value })}
-        />
+        <form onSubmit={handleSubmit}>
+          <input
+            placeholder="Property Title"
+            onChange={(e) => setForm({ ...form, title: e.target.value })}
+          />
 
-        <input
-          placeholder="Price"
-          type="number"
-          onChange={(e) => setForm({ ...form, price: e.target.value })}
-        />
+          <input
+            type="number"
+            placeholder="Price ($)"
+            onChange={(e) => setForm({ ...form, price: e.target.value })}
+          />
 
-        <input
-          placeholder="Location"
-          onChange={(e) => setForm({ ...form, location: e.target.value })}
-        />
-        <input type="file" accept="image/*" onChange={(e) => setForm({ ...form, image: e.target.files[0] })}/>
-        <textarea
-          placeholder="Description"
-          onChange={(e) => setForm({ ...form, description: e.target.value })}
-        />
+          <input
+            placeholder="Location"
+            onChange={(e) => setForm({ ...form, location: e.target.value })}
+          />
 
-        <button type="submit">Add Property</button>
-      </form>
+          <textarea
+            placeholder="Description"
+            onChange={(e) => setForm({ ...form, description: e.target.value })}
+          />
+
+          <input
+            type="file"
+            className="file-input"
+            onChange={(e) => setForm({ ...form, image: e.target.files[0] })}
+          />
+
+          <button type="submit">Add Property</button>
+        </form>
+      </div>
     </div>
-  );
+  </div>
+);
 }
 
 export default AddProperty;

@@ -40,3 +40,102 @@ body {
 .form-box button:hover {
   background: #1f56c0;
 }
+/* Add Property Page */
+.form-container {
+  max-width: 1000px;
+  margin: 10px auto;
+}
+
+.form-box h2 {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.form-box input,
+.form-box textarea {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+  padding-right: 10px;
+}
+
+.form-box textarea {
+  min-height: 100px;
+  resize: none;
+  padding-right: 10px;
+}
+
+.form-box input:focus,
+.form-box textarea:focus {
+  outline: none;
+  border-color: #2d6cdf;
+  box-shadow: 0 0 0 2px rgba(45,108,223,0.1);
+  padding-right: 10px;
+}
+
+.form-box button {
+  width: 100%;
+  padding: 12px;
+  background: #2d6cdf;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  margin-top: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+  padding-right: 10px;
+}
+
+.form-box button:hover {
+  background: #1f56c0;
+}
+
+/* File input styling */
+.file-input {
+  border: none;
+  margin-top: 10px;
+  padding-right: 10px;
+}
+/* NAVBAR */
+.navbar {
+  background: #2d6cdf;
+  color: white;
+  padding: 12px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar h2 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 15px;
+}
+
+.nav-links button {
+  background: white;
+  color: #2d6cdf;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.nav-links button:hover {
+  background: #f1f1f1;
+}
+.logout {
+  background: red;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
